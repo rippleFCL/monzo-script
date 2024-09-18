@@ -1,0 +1,2 @@
+class NoBalanceException(Exception):
+    pass

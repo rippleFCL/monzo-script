@@ -1,8 +1,8 @@
 from collections import defaultdict
 from dataclasses import dataclass
 
-from monzo_pots import MonzoPot
-from transaction_controlers import AccountTransactionGroupInterface
+from monzo_script.monzo_optimiser.pots.monzo_pots import MonzoPot
+from monzo_script.transaction_controllers import AccountTransactionGroupInterface
 
 
 @dataclass
@@ -18,7 +18,7 @@ def priority_distribution(
     tc: AccountTransactionGroupInterface,
     src_percentage: float = 1,
     funding_amount_max: int = 0,
-) -> list[tuple[MonzoPot, int]]: 
+) -> list[tuple[MonzoPot, int]]:
     processed_pots: list[tuple[MonzoPot, int]] = []
     if tc.get_pot_factored_balance(src_pot) > 0:
         priority_dest_pots: defaultdict[int, list[PotTarget]] = defaultdict(list)
