@@ -2,13 +2,13 @@ import stat
 from monzo.endpoints.account import Account
 from monzo.endpoints.pot import Pot
 from monzo_optimiser.pots.monzo_pots import MonzoPot
-from monzo_optimiser.pots.pot_procsessors import AccountProcessorInterface,
+from monzo_optimiser.pots.pot_procsessors import AccountProcessorInterface
 # from monzo_optimiser.transactions.transaction_controllers import AccountTransactionGroup, AccountTransactionGroupInterface
 
 
 class AccountManager:
     def __init__(self, account: Account, pots: dict[str, MonzoPot], account_processors: list[AccountProcessorInterface]) -> None:
-        self.account_processors:  = []
+        self.account_processors = account_processors
         self.account = account
         self.pots = pots
 
